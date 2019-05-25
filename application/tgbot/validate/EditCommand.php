@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wjq
- * Date: 2018/10/17
- * Time: 22:57
- */
-
 namespace app\tgbot\validate;
 
 use think\Validate;
