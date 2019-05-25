@@ -18,7 +18,14 @@ return [
     'version'     => '1.0.0',
     // 模块描述[必填]
     'description' => 'Telegram 抽奖机器人模块',
-    'tables' => [],
+    'tables' => [
+        'tgbot_chat',
+        'tgbot_conversation',
+        'tgbot_lottery',
+        'tgbot_lottery_channel',
+        'tgbot_lottery_prize',
+        'tgbot_lottery_user',
+    ],
     'database_prefix' => 'dp_',
     'config' => [
         [
