@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wjq
- * Date: 2018/11/18
- * Time: 上午12:07
- */
-
 namespace Longman\TelegramBot\Commands\UserCommands;
 
 use think\Db;
