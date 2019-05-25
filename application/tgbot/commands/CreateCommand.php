@@ -126,7 +126,7 @@ class CreateCommand extends UserCommand
         $chat = $message->getChat();
         $type = $chat->getType();
         $chat_id = $chat->getId();
-        $chat_title = $chat->getTitle();
+        $chat_title = htmlentities($chat->getTitle());
         $chat_username = $chat->getUsername();
         $message_id = $message->getMessageId();
         $user_id = $message->getFrom()->getId();
@@ -1110,11 +1110,11 @@ class CreateCommand extends UserCommand
 
         $keyboard_buttons[] = new InlineKeyboardButton([
             'text'          => '✅ 通过',
-            'callback_data'          => 'review_ratify_' . $id,
+            'callback_data'          => 'review-ratify-' . $id,
         ]);
         $keyboard_buttons[] = new InlineKeyboardButton([
             'text'          => '🚫 拒绝',
-            'callback_data'          => 'review_reject_' . $id,
+            'callback_data'          => 'review-reject-' . $id,
         ]);
 
         $data = [
