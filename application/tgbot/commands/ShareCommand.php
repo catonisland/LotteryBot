@@ -84,7 +84,7 @@ class ShareCommand extends UserCommand
         if (!$channel_info){
             $data = [
                 'chat_id' => $chat_id,
-                'text' => '此活动已开奖，无法分享',
+                'text' => '此活动无法分享',
             ];
             return Request::sendMessage($data);
         }
