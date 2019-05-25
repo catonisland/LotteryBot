@@ -78,7 +78,7 @@ class Create extends Validate
 
         'join_type.in' => '请通过键盘来选择用户参与方式',
 
-        'public_channel.in' => '请通过键盘来选择是否推送活动到频道',
+        'is_push_channel.in' => '请通过键盘来选择是否推送活动到频道',
 
         'chat_url.checkChatUrl' => '请使用标准的 <i>https://t.me/xxxx</i> 类群组邀请链接',
 
