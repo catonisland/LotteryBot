@@ -1,5 +1,5 @@
 -- -----------------------------
--- 导出时间 `2017-10-27 20:09:37`
+-- 导出时间 `2019-05-25 21:31:13`
 -- -----------------------------
-DROP TABLE IF EXISTS `msx_crontab`;
-DROP TABLE IF EXISTS `msx_crontab_log`;
+DROP TABLE IF EXISTS `dp_crontab`;
+DROP TABLE IF EXISTS `dp_crontab_log`;

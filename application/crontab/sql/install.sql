@@ -1,12 +1,12 @@
 -- -----------------------------
--- 导出时间 `2017-10-27 20:09:37`
+-- 导出时间 `2019-05-25 21:31:13`
 -- -----------------------------
 
 -- -----------------------------
--- 表结构 `msx_crontab`
+-- 表结构 `dp_crontab`
 -- -----------------------------
-DROP TABLE IF EXISTS `msx_crontab`;
-CREATE TABLE `msx_crontab` (
+DROP TABLE IF EXISTS `dp_crontab`;
+CREATE TABLE `dp_crontab` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `type` varchar(10) NOT NULL COMMENT '类型',
   `title` varchar(150) NOT NULL COMMENT '标题',
@@ -23,14 +23,19 @@ CREATE TABLE `msx_crontab` (
   `weigh` int(10) NOT NULL DEFAULT '0' COMMENT '权重',
   `status` enum('completed','expired','disable','normal') NOT NULL DEFAULT 'normal' COMMENT '状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='定时任务表';
-
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='定时任务表';
 
 -- -----------------------------
--- 表结构 `msx_crontab_log`
+-- 表数据 `dp_crontab`
 -- -----------------------------
-DROP TABLE IF EXISTS `msx_crontab_log`;
-CREATE TABLE `msx_crontab_log` (
+INSERT INTO `dp_crontab` VALUES ('1', 'url', '自动开奖', '/tgbot/lottery', '* * * * *', '0', '0', '81', '1558785742', '1558791061', '1558713600', '1735660800', '1558791061', '0', 'normal');
+INSERT INTO `dp_crontab` VALUES ('2', 'sql', '定期清理会话', 'DELETE FROM `dp_tgbot_conversation` WHERE `status` <1', '0 4 * * 1', '0', '0', '0', '1558785788', '1558785788', '1558713600', '1735660800', '', '0', 'normal');
+
+-- -----------------------------
+-- 表结构 `dp_crontab_log`
+-- -----------------------------
+DROP TABLE IF EXISTS `dp_crontab_log`;
+CREATE TABLE `dp_crontab_log` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `type` varchar(10) NOT NULL COMMENT '类型',
   `cid` int(10) unsigned NOT NULL COMMENT '任务的ID',
@@ -40,4 +45,3 @@ CREATE TABLE `msx_crontab_log` (
   `status` tinyint(1) NOT NULL COMMENT '状态 0:失败 1:成功',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='定时任务日志表';
-
