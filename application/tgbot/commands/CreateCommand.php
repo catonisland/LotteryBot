@@ -136,13 +136,10 @@ class CreateCommand extends UserCommand
         $text    = htmlentities(trim($message->getText(true)));
 
         // 机器人配置
-        $this->bot_config = module_config('tgbot.admin_users_ids,bot_username,bot_id,channel_id,channel_title,channel_username,channel_URL,channel_push_review');
-        $admin_users_ids = $this->bot_config['admin_users_ids'];
+        $this->bot_config = module_config('tgbot.bot_username,bot_id,channel_title,channel_URL,channel_push_review');
         $bot_username = $this->bot_config['bot_username'];
         $bot_id = $this->bot_config['bot_id'];
-        $channel_id = $this->bot_config['channel_id'];
         $channel_title = $this->bot_config['channel_title'];
-        $channel_username = $this->bot_config['channel_username'];
         $channel_URL = $this->bot_config['channel_URL'];
         $channel_push_review = $this->bot_config['channel_push_review'];
 
