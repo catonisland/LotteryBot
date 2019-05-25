@@ -17,7 +17,7 @@ return [
   'title' => '定时任务',
   'identifier' => 'crontab.meishixiu.module',
   'icon' => 'glyphicon glyphicon-time',
-  'description' => '模块依赖 composer 组件 <code>mtdowling/cron-expression</code> 和 <code>guzzlehttp/guzzle</code>',
+  'description' => '模块依赖 composer 组件 mtdowling/cron-expression 和 guzzlehttp/guzzle',
   'author' => '流风回雪',
   'author_url' => 'http://www.dolphinphp.com/',
   'version' => '1.0.0',
@@ -25,5 +25,5 @@ return [
     'crontab',
     'crontab_log',
   ],
-  'database_prefix' => 'msx_',
+  'database_prefix' => 'dp_',
 ];
