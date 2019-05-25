@@ -1,4 +1,4 @@
 .idea
-runtime
-database.php
-app.php
+/runtime
+/config/database.php
+/config/app.php
