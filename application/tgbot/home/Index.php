@@ -56,7 +56,10 @@ class Index
 
             // 在命令里处理 callbackquery
             CallbackqueryCommand::addCallbackHandler(function (CallbackQuery $query) use ($telegram) {
-                $telegram->executeCommand($query->getData());
+                $data = $query->getData();
+                $param = explode('-', $data);
+                $command = isset($param[0]) ? $param[0] : $data;
+                $telegram->executeCommand($command);
             });
 
             // Handle telegram webhook request
