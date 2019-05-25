@@ -96,7 +96,7 @@ return [
         [
             'text',
             'channel_username',
-            '频道 username',
+            '频道用户名',
             '不含前面的 @',
             '',
         ],
