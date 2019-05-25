@@ -10,9 +10,9 @@
 
 namespace Longman\TelegramBot\Commands\SystemCommands;
 
-use Longman\TelegramBot\Conversation;
 use Longman\TelegramBot\Request;
 use Longman\TelegramBot\Commands\SystemCommand;
+use app\tgbot\telegram\Conversation;
 
 /**
  * Generic message command
@@ -27,46 +27,35 @@ class GenericmessageCommand extends SystemCommand
     /**
      * @var string
      */
-    protected $description = 'Handle generic message';
+    protected $description = '处理通用消息';
 
     /**
      * @var string
      */
-    protected $version = '1.1.0';
+    protected $version = '1.0.0';
 
     /**
-     * @var bool
-     */
-    protected $need_mysql = true;
-
-    /**
-     * Execution if MySQL is required but not available
-     *
-     * @return \Longman\TelegramBot\Entities\ServerResponse
-     */
-    public function executeNoDb()
-    {
-        //Do nothing
-        return Request::emptyResponse();
-    }
-
-    /**
-     * Execute command
+     * 执行命令
      *
      * @return \Longman\TelegramBot\Entities\ServerResponse
      * @throws \Longman\TelegramBot\Exception\TelegramException
      */
     public function execute()
     {
-        //If a conversation is busy, execute the conversation command after handling the message
-        $conversation = new Conversation(
-            $this->getMessage()->getFrom()->getId(),
-            $this->getMessage()->getChat()->getId()
-        );
+        $message = $this->getMessage();
+        $type = $message->getChat()->getType();
 
-        //Fetch conversation command if it exists and execute it
-        if ($conversation->exists() && ($command = $conversation->getCommand())) {
-            return $this->telegram->executeCommand($command);
+        if ( $type == 'private' ){
+            //如果存在会话，则执行命令会话
+            $conversation = new Conversation(
+                $this->getMessage()->getFrom()->getId(),
+                $this->getMessage()->getChat()->getId()
+            );
+
+            //如果会话命令存在则获取并执行它
+            if ($conversation->exists() && ($command = $conversation->getCommand())) {
+                return $this->telegram->executeCommand($command);
+            }
         }
 
         return Request::emptyResponse();
